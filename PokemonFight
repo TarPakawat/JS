@@ -1,0 +1,58 @@
+// Pokemon 
+const getYourPokemon = yourPokemon => {
+  yourPokemon = yourPokemon.toLowerCase();
+  if ( yourPokemon === 'fire' || yourPokemon === 'water' || yourPokemon === 'leaf') {
+   return yourPokemon;
+  }  else {
+    console.log('Error!');
+  }
+};
+//Enermy
+const getEnermyPokemon = enermyPokemon => {
+  enermyPokemon = Math.floor(Math.random() * 3);
+  switch (enermyPokemon) {
+    case 0:
+      return 'fire';
+    case 1:
+      return 'water';
+    case 2:
+      return 'leaf';
+  }
+};
+//Find A Winner
+function determineChampion(yourPokemon, enermyPokemon) {
+  if (yourPokemon === enermyPokemon) {
+    return 'Game is hard!';
+  }
+  if (yourPokemon === 'fire') {
+    if (enermyPokemon === 'water') {
+      return 'Enermy Won!';
+    } else {
+      return 'You Won!';
+    }
+  }
+  if (yourPokemon === 'water') {
+    if (enermyPokemon === 'leaf') {
+     return 'Enermy Won!';
+    } else {
+     return 'You Won!';
+    }
+  }  
+  if (yourPokemon === 'leaf') {
+    if (enermyPokemon === 'fire') {
+       return 'Enermy Won!';
+    } else {
+       return 'You Won!';
+      }
+    }
+  }
+//Let Fight!
+const fight = () => {
+  const your = getYourPokemon('fire');
+  const enermy = getEnermyPokemon();
+  console.log('Your\'s pokemon is ' + your);
+  console.log('Enermy\'s pokemon is ' + enermy);
+  console.log(determineChampion(your, enermy));
+};
+fight();
+  
